@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fee Invoice — Computer and Robotics Bursary Portal</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="student" data-page="invoice">
+
+<div id="shell"></div>
+
+<main class="wrap invoice-page">
+  <div class="invoice-actions no-print">
+    <a class="button secondary inline-btn" href="/student/dashboard.html">Back to dashboard</a>
+    <button id="print-invoice" type="button" disabled>Print / Save as PDF</button>
+  </div>
+
+  <section class="invoice-document" aria-labelledby="invoice-title">
+    <header class="invoice-header">
+      <div>
+        <p class="invoice-brand">CRESA · BURSARY PORTAL</p>
+        <h2 id="invoice-title">Fee invoice</h2>
+        <p>Computer and Robotics Bursary Portal</p>
+      </div>
+      <div class="invoice-meta">
+        <span>Document date</span>
+        <strong id="invoice-date">—</strong>
+        <span>Academic session</span>
+        <strong id="invoice-session">Loading…</strong>
+      </div>
+    </header>
+
+    <div class="invoice-rule"></div>
+
+    <section class="invoice-student" aria-labelledby="student-details-title">
+      <h3 id="student-details-title">Student details</h3>
+      <div class="invoice-details-grid">
+        <div><span>Student name</span><strong id="student-name">—</strong></div>
+        <div><span>Matric number</span><strong id="student-matric">—</strong></div>
+        <div><span>Level</span><strong id="student-level">—</strong></div>
+        <div><span>Fee category</span><strong id="fee-category">—</strong></div>
+      </div>
+    </section>
+
+    <div id="invoice-content" aria-live="polite">
+      <p class="muted">Loading your invoice…</p>
+    </div>
+
+    <footer class="invoice-footer">
+      <p>Please use the student portal to pay any outstanding balance. Keep this invoice for your records.</p>
+      <p class="invoice-generated">Generated from the student portal on <span id="generated-at">—</span></p>
+    </footer>
+  </section>
+</main>
+
+<script src="/js/common.js"></script>
+<script src="/js/student-invoice.js"></script>
+</body>
+</html>

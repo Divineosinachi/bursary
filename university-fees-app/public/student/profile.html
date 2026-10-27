@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile — Computer and Robotics Bursary Portal</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="student" data-page="profile">
+
+<div id="shell"></div>
+
+<main class="profile-page">
+  <aside class="profile-sidebar" aria-label="Profile sections">
+    <div class="profile-sidebar-user">
+      <div class="student-avatar" id="profile-avatar" aria-hidden="true">S</div>
+      <strong id="profile-sidebar-name">Loading profile…</strong>
+      <span id="profile-sidebar-level">Student account</span>
+    </div>
+    <nav class="profile-section-nav">
+      <a class="active" href="#personal-information">Personal information</a>
+      <a href="#contact-details">Contact details</a>
+      <a href="#account-security">Account security</a>
+    </nav>
+  </aside>
+
+  <div class="profile-content">
+    <div class="profile-page-heading">
+      <div>
+        <p class="dashboard-eyebrow">STUDENT PORTAL</p>
+        <h2>My profile</h2>
+        <p>Review your account information and keep your contact details up to date.</p>
+      </div>
+      <a class="button secondary inline-btn no-print" href="/student/dashboard.html">Back to dashboard</a>
+    </div>
+
+    <section class="profile-section-card" id="personal-information" aria-labelledby="personal-title">
+      <div class="profile-card-heading">
+        <div>
+          <p class="dashboard-eyebrow">ACCOUNT</p>
+          <h3 id="personal-title">Personal information</h3>
+        </div>
+        <span class="profile-readonly-note">Account identifiers are read-only</span>
+      </div>
+      <div class="profile-readonly-grid">
+        <div><span>Full name</span><strong id="profile-full-name">—</strong></div>
+        <div><span>Email address</span><strong id="profile-email">—</strong></div>
+        <div><span>Matric number</span><strong id="profile-matric">—</strong></div>
+        <div><span>Academic level</span><strong id="profile-academic-level">—</strong></div>
+      </div>
+    </section>
+
+    <section class="profile-section-card" id="contact-details" aria-labelledby="contact-title">
+      <div class="profile-card-heading">
+        <div>
+          <p class="dashboard-eyebrow">YOUR DETAILS</p>
+          <h3 id="contact-title">Contact and origin details</h3>
+        </div>
+      </div>
+      <form id="profile-form">
+        <div class="profile-form-grid">
+          <label for="phone-number">
+            Phone number
+            <input type="tel" id="phone-number" name="phone_number" maxlength="32" autocomplete="tel" placeholder="+234 800 000 0000">
+          </label>
+          <label for="state-of-origin">
+            State of origin
+            <input type="text" id="state-of-origin" name="state_of_origin" maxlength="100" autocomplete="address-level1">
+          </label>
+          <label for="lga-of-origin">
+            Local government area
+            <input type="text" id="lga-of-origin" name="lga_of_origin" maxlength="100">
+          </label>
+          <label for="home-town">
+            Home town
+            <input type="text" id="home-town" name="home_town" maxlength="100" autocomplete="address-level2">
+          </label>
+          <label class="profile-field-wide" for="permanent-address">
+            Permanent address
+            <textarea id="permanent-address" name="permanent_address" maxlength="250" rows="3" autocomplete="street-address"></textarea>
+          </label>
+          <label class="profile-field-wide" for="contact-address">
+            Contact address
+            <textarea id="contact-address" name="contact_address" maxlength="250" rows="3" autocomplete="street-address"></textarea>
+          </label>
+        </div>
+        <div class="profile-form-footer">
+          <p class="profile-privacy-note">These details are visible only to authorized portal staff.</p>
+          <button type="submit" id="profile-save-btn">Save profile</button>
+        </div>
+        <div id="profile-msg" class="notice" role="status" aria-live="polite" style="display:none;"></div>
+      </form>
+    </section>
+
+    <section class="profile-section-card" id="account-security" aria-labelledby="security-title">
+      <div class="profile-card-heading">
+        <div>
+          <p class="dashboard-eyebrow">SECURITY</p>
+          <h3 id="security-title">Change password</h3>
+        </div>
+      </div>
+      <form id="password-form">
+        <div class="profile-form-grid">
+          <label for="current-password" class="profile-field-wide">
+            Current password
+            <input type="password" id="current-password" required autocomplete="current-password">
+          </label>
+          <label for="new-password">
+            New password
+            <input type="password" id="new-password" required minlength="8" autocomplete="new-password">
+          </label>
+          <label for="confirm-password">
+            Confirm new password
+            <input type="password" id="confirm-password" required minlength="8" autocomplete="new-password">
+          </label>
+        </div>
+        <div class="profile-form-footer">
+          <p class="profile-privacy-note">Use at least 8 characters, including an uppercase letter, a number, and a symbol.</p>
+          <button type="submit" id="password-btn">Change password</button>
+        </div>
+        <div id="password-msg" class="error" role="status" aria-live="polite" style="display:none;"></div>
+      </form>
+    </section>
+  </div>
+</main>
+
+<script src="/js/common.js"></script>
+<script src="/js/account.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Students — Staff Portal</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="staff" data-page="students">
+
+<div id="shell"></div>
+
+<div class="wrap">
+  <div class="panel">
+    <h2 style="font-size:1.2rem;">Students</h2>
+    <div class="toolbar">
+      <div>
+        <label for="search">Search by name, matric number or email</label>
+        <input type="text" id="search" placeholder="Start typing…">
+      </div>
+    </div>
+    <div class="table-scroll"><table class="history">
+      <thead><tr><th>Student</th><th>Matric no.</th><th>Level</th><th>School fee</th><th>Hostel fee</th><th>Registered</th></tr></thead>
+      <tbody id="students-body"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody>
+    </table></div>
+  </div>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/students.js"></script>
+</body>
+</html>

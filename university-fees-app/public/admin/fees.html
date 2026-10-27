@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fee Amounts — Admin Portal</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="admin" data-page="fees">
+
+<div id="shell"></div>
+
+<div class="wrap">
+  <div class="panel">
+    <h2 style="font-size:1.2rem;">Fee amounts</h2>
+    <p class="muted" id="fees-session">Loading…</p>
+    <label for="fees-session-input">Academic session</label>
+    <input id="fees-session-input" type="text" inputmode="numeric" pattern="[0-9]{4}/[0-9]{4}" placeholder="2025/2026" required aria-describedby="fees-session">
+    <button type="button" class="secondary inline-btn" id="load-session-btn">Load session</button>
+    <p class="muted">Students can choose a session once its fee amounts are saved for their level.</p>
+    <div class="table-scroll"><table class="history">
+      <thead><tr><th>Level</th><th>School fee (₦)</th><th>Hostel fee (₦)</th><th></th></tr></thead>
+      <tbody id="fees-body"><tr><td colspan="4" class="muted">Loading…</td></tr></tbody>
+    </table></div>
+    <p class="muted">Changing an amount affects what students see as their balance straight away. Payments already made are not changed.</p>
+  </div>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/admin-fees.js"></script>
+</body>
+</html>

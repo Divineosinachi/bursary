@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staff Accounts — Admin Portal</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="admin" data-page="staff">
+
+<div id="shell"></div>
+
+<div class="wrap">
+  <div class="panel">
+    <h2 style="font-size:1.2rem;">Add a staff account</h2>
+    <form id="staff-form">
+      <div class="form-grid">
+        <div>
+          <label for="s-name">Full name</label>
+          <input type="text" id="s-name" required>
+        </div>
+        <div>
+          <label for="s-email">Email</label>
+          <input type="email" id="s-email" required>
+        </div>
+        <div>
+          <label for="s-dept">Department (optional)</label>
+          <input type="text" id="s-dept">
+        </div>
+        <div>
+          <label for="s-role">Role</label>
+          <select id="s-role">
+            <option value="staff">Staff</option>
+            <option value="admin">Administrator</option>
+          </select>
+        </div>
+        <div>
+          <label for="s-password">Temporary password</label>
+          <input type="password" id="s-password" required minlength="8" autocomplete="new-password">
+        </div>
+      </div>
+      <button type="submit" id="staff-btn">Create account</button>
+      <div id="staff-msg" class="error" style="display:none;"></div>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h2 style="font-size:1.2rem;">Staff and administrators</h2>
+    <div class="table-scroll"><table class="history">
+      <thead><tr><th>Name</th><th>Role</th><th>Department</th><th>Status</th><th></th></tr></thead>
+      <tbody id="staff-body"><tr><td colspan="5" class="muted">Loading…</td></tr></tbody>
+    </table></div>
+  </div>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/admin-staff.js"></script>
+</body>
+</html>

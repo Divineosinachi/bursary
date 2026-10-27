@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Account — Staff Portal</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="staff" data-page="account">
+
+<div id="shell"></div>
+
+<div class="wrap">
+  <div class="panel">
+    <h2 style="font-size:1.2rem; margin-bottom:1rem;">Your details</h2>
+    <div id="account-details">Loading…</div>
+  </div>
+
+  <div class="panel">
+    <h2 style="font-size:1.2rem;">Change password</h2>
+    <form id="password-form">
+      <label for="current-password">Current password</label>
+      <input type="password" id="current-password" required autocomplete="current-password">
+
+      <label for="new-password">New password</label>
+      <input type="password" id="new-password" required minlength="8" autocomplete="new-password">
+
+      <label for="confirm-password">Confirm new password</label>
+      <input type="password" id="confirm-password" required autocomplete="new-password">
+
+      <button type="submit" id="password-btn">Change password</button>
+      <div id="password-msg" class="error" style="display:none;"></div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/account.js"></script>
+</body>
+</html>

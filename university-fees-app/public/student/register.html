@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Account — </title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="student" data-page="register" data-public="true" data-subtitle="Create your student account">
+
+<div id="shell"></div>
+
+<div class="wrap">
+  <div class="panel">
+    <h2 style="font-size:1.2rem;">Register</h2>
+    <form id="register-form">
+      <label for="full_name">Full name</label>
+      <input type="text" id="full_name" required autocomplete="name">
+
+      <label for="matric_number">Matric number</label>
+      <input type="text" id="matric_number" required>
+
+      <label for="level">Level</label>
+      <select id="level" required>
+        <option value="">Select level</option>
+        <option value="100">100 Level</option>
+        <option value="200">200 Level</option>
+        <option value="300">300 Level</option>
+        <option value="400">400 Level</option>
+        <option value="500">500 Level</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required autocomplete="email">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required minlength="8" pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,}" title="Use at least 8 characters, including an uppercase letter, a number, and a symbol." autocomplete="new-password">
+
+      <button type="submit" id="submit-btn">Create account</button>
+      <div class="error" id="error-msg" style="display:none;"></div>
+    </form>
+    <p class="footer-link">Already registered? <a href="/student/login.html">Log in</a></p>
+  </div>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/register.js"></script>
+</body>
+</html>

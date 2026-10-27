@@ -1,0 +1,1832 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #262420;
+  --ink-soft: #5b574f;
+  --paper: #F5FAF6;
+  --panel: #FFFFFF;
+  --navy: #16233F;
+  --gold: #B8863B;
+  --sage: #4B6B4E;
+  --rust: #A3462F;
+  --line: #D7E4D9;
+  --radius: 3px;
+  --max-width: 640px;
+}
+
+body[data-portal="staff"], body[data-portal="admin"] { --max-width: 1040px; }
+body[data-portal="student"][data-page="dashboard"] { --max-width: 960px; }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+html { background: var(--paper); }
+
+body {
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  background-image:
+    radial-gradient(ellipse at 72% 8rem, rgba(82, 190, 133, 0.2), transparent 34%),
+    repeating-linear-gradient(32deg, transparent 0 95px, rgba(255, 255, 255, 0.055) 96px 97px, transparent 98px 175px),
+    linear-gradient(180deg, #006B3C 0, #006B3C 22rem, #F2F7F3 22rem, #FFFFFF 38rem);
+  background-size:
+    100% 22rem,
+    100% 22rem,
+    100% 100%;
+  background-position:
+    center,
+    center,
+    center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  margin: 0;
+  color: var(--navy);
+}
+
+a { color: var(--navy); }
+
+.letterhead {
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-align: left;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.letterhead h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+.letterhead p {
+  margin: 0.25rem 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.95rem;
+}
+
+.letterhead hr {
+  border: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  height: 3px;
+  margin-top: 1.25rem;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 1rem 0 0.3rem;
+}
+
+label:first-of-type { margin-top: 0; }
+
+input, select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+input:focus, select:focus, button:focus, a.button:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+button, a.button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+button:hover, a.button:hover { background: #1f3357; }
+
+button.secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+}
+button.secondary:hover { background: rgba(22,35,63,0.05); }
+
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.error {
+  color: var(--rust);
+  font-size: 0.9rem;
+  margin-top: 0.9rem;
+}
+
+.notice {
+  color: var(--sage);
+  font-size: 0.9rem;
+  margin-top: 0.9rem;
+}
+
+.footer-link {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* Fee statement */
+.statement-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+}
+.statement-row:first-child { border-top: none; padding-top: 0; }
+
+.statement-row .fee-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin: 0 0 0.35rem;
+}
+
+.statement-row .fee-detail {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.statement-row .fee-amounts { min-width: 220px; }
+
+.status-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+}
+.status-tag.paid { background: rgba(75,107,78,0.12); color: var(--sage); }
+.status-tag.partial { background: rgba(184,134,59,0.15); color: var(--gold); }
+.status-tag.unpaid { background: rgba(163,70,47,0.12); color: var(--rust); }
+
+.action { text-align: right; min-width: 130px; }
+.action button, .action a.button { margin-top: 0; }
+
+table.history {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+table.history th, table.history td {
+  text-align: left;
+  padding: 0.55rem 0.4rem;
+  border-top: 1px solid var(--line);
+}
+table.history th {
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: none;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.top-row .student-id { font-size: 0.85rem; color: var(--ink-soft); }
+.top-row button.secondary { margin-top: 0; padding: 0.4rem 0.9rem; font-size: 0.85rem; }
+
+@media (max-width: 480px) {
+  .statement-row { flex-direction: column; }
+  .action { text-align: left; }
+}
+
+/* ---------- Portal navigation ---------- */
+.portal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.portal-nav a {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+}
+.portal-nav a:hover { color: #FFFFFF; }
+.portal-nav a.active { color: #FFFFFF; font-weight: 600; border-bottom-color: #FFFFFF; }
+.portal-nav button.secondary { color: #FFFFFF; border-color: rgba(255, 255, 255, 0.75); }
+.portal-nav button.secondary:hover { background: rgba(255, 255, 255, 0.12); }
+.portal-nav .spacer { flex: 1; }
+
+button.inline-btn, a.button.inline-btn {
+  margin-top: 0;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* ---------- Landing page ---------- */
+.portal-choices { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.portal-choice {
+  display: block;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.portal-choice:hover { border-color: var(--navy); }
+.portal-choice h2 { font-size: 1.15rem; margin-bottom: 0.25rem; }
+.portal-choice p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* ---------- Dashboards, tables, forms ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.stat {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+.stat .stat-value { font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; color: var(--navy); margin: 0; }
+.stat .stat-label { font-size: 0.8rem; color: var(--ink-soft); margin: 0.2rem 0 0; }
+
+.table-scroll { overflow-x: auto; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: flex-end; margin-bottom: 0.5rem; }
+.toolbar > div { flex: 1; min-width: 180px; }
+.toolbar label { margin-top: 0; }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 1rem; }
+.form-grid label { margin-top: 0.9rem; }
+
+.fee-input { max-width: 150px; }
+.muted { color: var(--ink-soft); font-size: 0.88rem; }
+.status-tag.pending { background: rgba(184,134,59,0.15); color: var(--gold); }
+.status-tag.success { background: rgba(75,107,78,0.12); color: var(--sage); }
+.status-tag.failed  { background: rgba(163,70,47,0.12); color: var(--rust); }
+.status-tag.inactive { background: rgba(91,87,79,0.12); color: var(--ink-soft); }
+.status-tag { margin-bottom: 0; }
+.panel h2 + .muted { margin-top: 0.3rem; }
+
+/* ---------- Student dashboard ---------- */
+body[data-portal="student"][data-page="dashboard"] {
+  background-image:
+    radial-gradient(ellipse at 72% 9rem, rgba(82, 190, 133, 0.2), transparent 34%),
+    repeating-linear-gradient(32deg, transparent 0 95px, rgba(255, 255, 255, 0.055) 96px 97px, transparent 98px 175px),
+    linear-gradient(180deg, #006B3C 0, #006B3C 35rem, #F2F7F3 35rem, #FFFFFF 50rem);
+  background-size: 100% 35rem, 100% 35rem, 100% 100%;
+}
+
+.student-dashboard {
+  padding-bottom: 4rem;
+}
+
+.dashboard-welcome {
+  padding: 1.35rem 0 1.7rem;
+  color: #FFFFFF;
+}
+
+.dashboard-eyebrow {
+  margin: 0 0 0.4rem;
+  color: #28764C;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.dashboard-welcome .dashboard-eyebrow {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.dashboard-welcome h2 {
+  color: #FFFFFF;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.dashboard-welcome > p:last-child {
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.fees-summary {
+  padding: 1.5rem 1.75rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 12px;
+  box-shadow: 0 14px 36px rgba(13, 50, 31, 0.12);
+}
+
+.fees-summary h2 {
+  font-size: 1.35rem;
+}
+
+.summary-note {
+  margin: 0.25rem 0 1.25rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.summary-totals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.summary-totals > div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.summary-label,
+.progress-caption {
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.summary-totals strong {
+  color: var(--navy);
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-track {
+  height: 9px;
+  overflow: hidden;
+  background: #E8EFEA;
+  border-radius: 999px;
+}
+
+.progress-track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #087342, #4ABF7B);
+  border-radius: inherit;
+  transition: width 250ms ease;
+}
+
+.summary-progress span {
+  width: 0;
+}
+
+.progress-caption {
+  margin: 0.45rem 0 0;
+}
+
+.payment-feedback:not(:empty) {
+  margin: 0.9rem 0;
+  padding: 0.1rem 1rem;
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+
+.fee-section {
+  margin-top: 2.25rem;
+}
+
+.fee-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.fee-section-heading .dashboard-eyebrow {
+  color: #28764C;
+}
+
+.fee-section-heading h2 {
+  color: var(--navy);
+  font-size: 1.45rem;
+}
+
+.fee-section-heading .button {
+  flex-shrink: 0;
+}
+
+.fee-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fee-card {
+  min-width: 0;
+  padding: 1.35rem;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 5px 18px rgba(22, 35, 63, 0.045);
+}
+
+.fee-card-heading,
+.fee-progress-row,
+.fee-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fee-card-kicker {
+  margin: 0 0 0.2rem;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.fee-card .fee-name {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.fee-card .status-tag {
+  flex-shrink: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.fee-balance {
+  margin: 1.35rem 0 0;
+  color: var(--navy);
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.fee-card > .fee-detail {
+  margin: 0.05rem 0 1rem;
+}
+
+.fee-progress-row {
+  margin-bottom: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.fee-progress-row span:last-child {
+  text-align: right;
+}
+
+.fee-card-footer {
+  min-height: 52px;
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.fee-card-footer strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.fee-card-footer .pay-btn {
+  margin: 0;
+  min-height: 38px;
+  padding: 0.55rem 0.8rem;
+  background: #17324A;
+  border: 1px solid #17324A;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fee-card-footer .pay-btn:hover {
+  background: #254760;
+  border-color: #254760;
+}
+
+.fee-card-footer .pay-btn.secondary {
+  background: #FFFFFF;
+  border-color: #CBD5DF;
+  color: #34495E;
+}
+
+.fee-card-footer .pay-btn.secondary:hover {
+  background: #F4F6F8;
+  border-color: #AEBBC8;
+}
+
+.fee-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fee-card-actions .invoice-btn {
+  margin: 0;
+  min-height: 38px;
+  padding: 0.5rem 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #CBD5DF;
+  border-radius: 5px;
+  color: #34495E;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fee-card-actions .invoice-btn:hover {
+  background: #F4F6F8;
+  border-color: #AEBBC8;
+}
+
+.fee-settled {
+  margin: 0;
+  color: #28764C;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  body[data-portal="student"][data-page="dashboard"] {
+    background-image:
+      radial-gradient(ellipse at 72% 9rem, rgba(82, 190, 133, 0.2), transparent 34%),
+      repeating-linear-gradient(32deg, transparent 0 95px, rgba(255, 255, 255, 0.055) 96px 97px, transparent 98px 175px),
+      linear-gradient(180deg, #006B3C 0, #006B3C 39rem, #F2F7F3 39rem, #FFFFFF 54rem);
+    background-size: 100% 39rem, 100% 39rem, 100% 100%;
+  }
+
+  .fee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 420px) {
+  .fees-summary {
+    padding: 1.25rem;
+  }
+
+  .summary-totals {
+    gap: 0.65rem;
+  }
+
+  .fee-card {
+    padding: 1.1rem;
+  }
+
+  .fee-card-actions {
+    justify-content: flex-start;
+  }
+
+  .fee-card-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ---------- UNN-inspired student dashboard ---------- */
+body[data-portal="student"][data-page="dashboard"] {
+  --max-width: 1360px;
+  background: #F5F6F8;
+  background-image: none;
+  background-attachment: scroll;
+}
+
+body[data-portal="student"][data-page="dashboard"] #shell .letterhead {
+  max-width: none;
+  margin: 0;
+  padding: 0.8rem clamp(1rem, 3vw, 2.5rem);
+  background: #FFFFFF;
+  border-bottom: 1px solid #E7EAF0;
+}
+
+body[data-portal="student"][data-page="dashboard"] .letterhead h1 {
+  color: #18324A;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+body[data-portal="student"][data-page="dashboard"] .letterhead p {
+  color: #667085;
+  font-size: 0.78rem;
+}
+
+body[data-portal="student"][data-page="dashboard"] .letterhead hr {
+  display: none;
+}
+
+body[data-portal="student"][data-page="dashboard"] .portal-nav {
+  max-width: none;
+  padding: 0.45rem clamp(1rem, 3vw, 2.5rem);
+  background: #FFFFFF;
+  border-bottom: 1px solid #E7EAF0;
+}
+
+body[data-portal="student"][data-page="dashboard"] .portal-nav a {
+  color: #526173;
+}
+
+body[data-portal="student"][data-page="dashboard"] .portal-nav a:hover,
+body[data-portal="student"][data-page="dashboard"] .portal-nav a.active {
+  color: #087342;
+}
+
+body[data-portal="student"][data-page="dashboard"] .portal-nav a.active {
+  border-bottom-color: #087342;
+}
+
+body[data-portal="student"][data-page="dashboard"] .portal-nav button.secondary {
+  color: #087342;
+  border-color: #C9DDD0;
+}
+
+.student-dashboard {
+  display: grid;
+  grid-template-columns: minmax(245px, 290px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  width: 100%;
+  max-width: 1360px;
+  min-height: calc(100vh - 110px);
+  margin: 0 auto;
+  padding: 0;
+}
+
+.student-profile {
+  min-width: 0;
+  padding: 2.75rem clamp(1.25rem, 2.5vw, 2rem);
+  background: #FFFFFF;
+  border-right: 1px solid #E8EBF0;
+}
+
+.student-avatar {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 0.85rem;
+  place-items: center;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  background: #DDEBE2;
+  box-shadow: 0 0 0 1px #D5E3DA;
+  color: #087342;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.student-profile h2 {
+  overflow-wrap: anywhere;
+  color: #17324A;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.student-level {
+  margin: 0.15rem 0 1.2rem;
+  color: #7A8796;
+  font-size: 0.76rem;
+  text-align: center;
+}
+
+.profile-update {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  background: #F1F3F6;
+  border-radius: 4px;
+  color: #17324A;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.profile-update:hover {
+  background: #E7EBF0;
+}
+
+.profile-divider {
+  height: 1px;
+  margin: 1.4rem 0;
+  background: #E3E7EC;
+}
+
+.profile-details {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.profile-details > div {
+  min-width: 0;
+}
+
+.profile-details dt {
+  margin-bottom: 0.12rem;
+  color: #7A8796;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.profile-details dd {
+  margin: 0;
+  color: #273B50;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-content {
+  min-width: 0;
+  padding: 2.25rem clamp(1rem, 3.5vw, 3.25rem) 3rem 0;
+}
+
+.dashboard-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  padding: 0 0 1.5rem;
+  color: var(--ink);
+}
+
+.dashboard-welcome .dashboard-eyebrow {
+  color: #087342;
+}
+
+.dashboard-welcome h1 {
+  color: #17324A;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  font-weight: 600;
+}
+
+.dashboard-welcome > div:first-child > p:last-child {
+  margin: 0.35rem 0 0;
+  color: #718096;
+  font-size: 0.88rem;
+}
+
+.session-chip {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.55rem 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E7ED;
+  border-radius: 5px;
+}
+
+.session-chip label {
+  color: #8290A0;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.session-chip select {
+  color: #17324A;
+  font-size: 0.8rem;
+  border: 0;
+  padding: 0.15rem 1.5rem 0.15rem 0;
+  background-color: transparent;
+  font-weight: 600;
+}
+
+.fee-payment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fee-payment-actions button {
+  margin-top: 0;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-stat {
+  position: relative;
+  min-width: 0;
+  min-height: 128px;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.stat-blue { background: #DDEBFF; }
+.stat-cyan { background: #E0F8FA; }
+.stat-green { background: #B3F2D4; }
+
+.dashboard-stat .stat-icon {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  margin-bottom: 0.55rem;
+  place-items: center;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.65);
+  color: #174B87;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.stat-cyan .stat-icon { color: #07818E; }
+.stat-green .stat-icon { color: #087342; }
+
+.dashboard-stat p {
+  margin: 0;
+  color: #30465E;
+  font-size: 0.78rem;
+}
+
+.dashboard-stat > strong {
+  display: block;
+  margin-top: 0.65rem;
+  color: #17324A;
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-stat .stat-caption {
+  display: block;
+  margin-top: 0.1rem;
+  color: #607184;
+  font-size: 0.68rem;
+}
+
+.dashboard-panel {
+  padding: 1.15rem 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid #DCE2E9;
+  border-radius: 5px;
+}
+
+.dashboard-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #E3E7EC;
+}
+
+.dashboard-panel-heading .dashboard-eyebrow {
+  display: none;
+}
+
+.dashboard-panel-heading h2 {
+  color: #17324A;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.dashboard-panel-heading > a {
+  color: #087342;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dashboard-panel-heading > a:hover {
+  text-decoration: underline;
+}
+
+.activity-body {
+  min-height: 170px;
+}
+
+.activity-empty {
+  display: grid;
+  min-height: 190px;
+  padding: 1.25rem;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.activity-empty-icon,
+.activity-payment-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: #E8F6ED;
+  color: #16804A;
+  font-weight: 600;
+}
+
+.activity-empty > strong {
+  margin-top: 0.65rem;
+  color: #243B53;
+  font-size: 0.82rem;
+}
+
+.activity-empty > p {
+  margin: 0.15rem 0 0;
+  color: #8290A0;
+  font-size: 0.75rem;
+}
+
+.activity-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #EEF0F3;
+}
+
+.activity-row:last-child {
+  border-bottom: 0;
+}
+
+.activity-payment-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 0.8rem;
+}
+
+.activity-description {
+  display: grid;
+  min-width: 0;
+  gap: 0.12rem;
+}
+
+.activity-description strong,
+.activity-amount {
+  color: #263B50;
+  font-size: 0.8rem;
+}
+
+.activity-description span {
+  color: #8290A0;
+  font-size: 0.7rem;
+}
+
+.activity-row .status-tag {
+  margin: 0;
+}
+
+.activity-row > a {
+  color: #087342;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.dashboard-content .fee-section {
+  margin-top: 1.25rem;
+}
+
+.dashboard-content .fee-section-heading {
+  margin-bottom: 0.9rem;
+}
+
+.dashboard-content .fee-section-heading .dashboard-eyebrow {
+  margin-bottom: 0.15rem;
+}
+
+.dashboard-content .fee-section-heading h2 {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.98rem;
+}
+
+.dashboard-content .fee-card {
+  border-color: #E1E6EC;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.dashboard-content .fee-card .fee-name {
+  color: #17324A;
+}
+
+.dashboard-content .fee-balance {
+  font-size: 1.55rem;
+}
+
+@media (max-width: 900px) {
+  .student-dashboard {
+    grid-template-columns: 225px minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .student-profile {
+    padding-right: 1.1rem;
+    padding-left: 1.1rem;
+  }
+
+  .dashboard-content {
+    padding-right: 1rem;
+  }
+
+  .dashboard-stats {
+    gap: 0.55rem;
+  }
+
+  .dashboard-stat {
+    padding: 0.8rem;
+  }
+
+  .activity-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .activity-row .status-tag,
+  .activity-row > a {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .student-dashboard {
+    display: block;
+  }
+
+  .student-profile {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.2rem 0.85rem;
+    padding: 1rem;
+    border-right: 0;
+    border-bottom: 1px solid #E8EBF0;
+  }
+
+  .student-avatar {
+    grid-row: span 2;
+    width: 54px;
+    height: 54px;
+    margin: 0;
+  }
+
+  .student-profile h2,
+  .student-level {
+    text-align: left;
+  }
+
+  .student-profile h2 {
+    align-self: end;
+  }
+
+  .student-level {
+    align-self: start;
+    margin: 0;
+  }
+
+  .profile-update {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .profile-divider {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0.65rem 0 0.25rem;
+  }
+
+  .profile-details {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .profile-details dt {
+    font-size: 0.6rem;
+  }
+
+  .profile-details dd {
+    font-size: 0.72rem;
+  }
+
+  .dashboard-content {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+
+  .dashboard-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stat {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0.75rem;
+    align-items: center;
+  }
+
+  .dashboard-stat .stat-icon {
+    grid-row: span 3;
+    margin: 0;
+  }
+
+  .dashboard-stat > strong {
+    margin-top: 0.1rem;
+    font-size: 1rem;
+  }
+
+  .dashboard-stat .stat-caption {
+    margin-top: 0;
+  }
+
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-row {
+    gap: 0.55rem;
+  }
+}
+
+/* ---------- UNN-inspired student profile ---------- */
+body[data-portal="student"][data-page="profile"] {
+  --max-width: 1360px;
+  background: #F5F6F8;
+  background-image: none;
+  background-attachment: scroll;
+}
+
+body[data-portal="student"][data-page="profile"] #shell .letterhead {
+  max-width: none;
+  margin: 0;
+  padding: 0.8rem clamp(1rem, 3vw, 2.5rem);
+  background: #FFFFFF;
+  border-bottom: 1px solid #E7EAF0;
+}
+
+body[data-portal="student"][data-page="profile"] .letterhead h1 {
+  color: #18324A;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+body[data-portal="student"][data-page="profile"] .letterhead p {
+  color: #667085;
+  font-size: 0.78rem;
+}
+
+body[data-portal="student"][data-page="profile"] .letterhead hr {
+  display: none;
+}
+
+body[data-portal="student"][data-page="profile"] .portal-nav {
+  max-width: none;
+  padding: 0.45rem clamp(1rem, 3vw, 2.5rem);
+  background: #FFFFFF;
+  border-bottom: 1px solid #E7EAF0;
+}
+
+body[data-portal="student"][data-page="profile"] .portal-nav a {
+  color: #526173;
+}
+
+body[data-portal="student"][data-page="profile"] .portal-nav a:hover,
+body[data-portal="student"][data-page="profile"] .portal-nav a.active {
+  color: #087342;
+}
+
+body[data-portal="student"][data-page="profile"] .portal-nav a.active {
+  border-bottom-color: #087342;
+}
+
+body[data-portal="student"][data-page="profile"] .portal-nav button.secondary {
+  color: #087342;
+  border-color: #C9DDD0;
+}
+
+.profile-page {
+  display: grid;
+  grid-template-columns: minmax(210px, 260px) minmax(0, 760px);
+  justify-content: center;
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  min-height: calc(100vh - 110px);
+  padding: 2rem 1.5rem 4rem;
+}
+
+.profile-sidebar {
+  position: sticky;
+  top: 1.25rem;
+  padding: 1rem 0.5rem;
+}
+
+.profile-sidebar-user {
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.profile-sidebar-user .student-avatar {
+  width: 64px;
+  height: 64px;
+  margin: 0 0 0.5rem;
+}
+
+.profile-sidebar-user strong {
+  max-width: 100%;
+  color: #17324A;
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+
+.profile-sidebar-user > span {
+  color: #7A8796;
+  font-size: 0.72rem;
+}
+
+.profile-section-nav {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.profile-section-nav a {
+  padding: 0.55rem 0.7rem;
+  border-left: 3px solid transparent;
+  color: #526173;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.profile-section-nav a:hover,
+.profile-section-nav a.active {
+  border-left-color: #087342;
+  color: #087342;
+  font-weight: 600;
+}
+
+.profile-content {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.profile-page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.profile-page-heading .dashboard-eyebrow,
+.profile-card-heading .dashboard-eyebrow {
+  margin-bottom: 0.2rem;
+  color: #087342;
+}
+
+.profile-page-heading h2 {
+  color: #17324A;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+
+.profile-page-heading > div > p:last-child {
+  margin: 0.3rem 0 0;
+  color: #718096;
+  font-size: 0.83rem;
+}
+
+.profile-page-heading > a {
+  flex-shrink: 0;
+  margin: 0;
+  border-color: #C9DDD0;
+  color: #087342;
+}
+
+.profile-page-heading > a:hover {
+  background: #EFF7F1;
+}
+
+.profile-section-card {
+  min-width: 0;
+  padding: 1.3rem 1.4rem;
+  background: #FFFFFF;
+  border: 1px solid #DCE2E9;
+  border-radius: 5px;
+}
+
+.profile-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #E6E9EE;
+}
+
+.profile-card-heading h3 {
+  color: #17324A;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.profile-readonly-note {
+  color: #8290A0;
+  font-size: 0.69rem;
+  text-align: right;
+}
+
+.profile-readonly-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.profile-readonly-grid > div {
+  display: grid;
+  min-width: 0;
+  gap: 0.18rem;
+}
+
+.profile-readonly-grid span {
+  color: #7A8796;
+  font-size: 0.69rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.profile-readonly-grid strong {
+  color: #273B50;
+  font-size: 0.83rem;
+  overflow-wrap: anywhere;
+}
+
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1rem;
+}
+
+.profile-form-grid label {
+  margin: 0.2rem 0 0.85rem;
+  color: #526173;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.profile-form-grid input,
+.profile-form-grid textarea {
+  display: block;
+  margin-top: 0.3rem;
+  padding: 0.65rem 0.7rem;
+  background: #FFFFFF;
+  border-color: #D8DEE6;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
+.profile-form-grid input:focus,
+.profile-form-grid textarea:focus {
+  border-color: #16804A;
+  outline-color: #16804A;
+}
+
+.profile-form-grid textarea {
+  width: 100%;
+  min-height: 78px;
+  resize: vertical;
+  font: inherit;
+}
+
+.profile-field-wide {
+  grid-column: 1 / -1;
+}
+
+.profile-form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #EEF0F3;
+}
+
+.profile-form-footer .profile-privacy-note {
+  margin: 0;
+  color: #8290A0;
+  font-size: 0.72rem;
+}
+
+.profile-form-footer button {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.6rem 1rem;
+  background: #087342;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
+.profile-form-footer button:hover {
+  background: #065C35;
+}
+
+#profile-msg,
+#password-msg {
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 720px) {
+  .profile-page {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .profile-sidebar {
+    position: static;
+    padding: 0.75rem;
+    background: #FFFFFF;
+    border: 1px solid #DCE2E9;
+    border-radius: 5px;
+  }
+
+  .profile-sidebar-user {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    text-align: left;
+  }
+
+  .profile-sidebar-user .student-avatar {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    margin: 0 0.2rem 0 0;
+    font-size: 1rem;
+  }
+
+  .profile-sidebar-user strong {
+    align-self: end;
+  }
+
+  .profile-sidebar-user > span {
+    align-self: start;
+    margin-left: -0.2rem;
+  }
+
+  .profile-section-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 0.7rem;
+    border-top: 1px solid #EEF0F3;
+    padding-top: 0.55rem;
+  }
+
+  .profile-section-nav a {
+    padding: 0.45rem 0.35rem;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+    font-size: 0.68rem;
+    text-align: center;
+  }
+
+  .profile-section-nav a:hover,
+  .profile-section-nav a.active {
+    border-bottom-color: #087342;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-section-card {
+    padding: 1rem;
+  }
+
+  .profile-readonly-grid,
+  .profile-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-field-wide {
+    grid-column: auto;
+  }
+
+  .profile-readonly-note {
+    max-width: 120px;
+  }
+
+  .profile-form-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ---------- Printable student fee invoice ---------- */
+.invoice-page {
+  max-width: 850px;
+}
+
+.invoice-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.invoice-actions button,
+.invoice-actions a.button {
+  margin: 0;
+}
+
+.invoice-document {
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-top: 6px solid #087342;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(22, 35, 63, 0.08);
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.invoice-brand {
+  margin: 0 0 0.35rem;
+  color: #087342;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.invoice-header h2 {
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+}
+
+.invoice-header > div:first-child > p:last-child {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.invoice-meta {
+  display: grid;
+  gap: 0.15rem;
+  text-align: right;
+}
+
+.invoice-meta span,
+.invoice-details-grid span {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.invoice-meta strong {
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+}
+
+.invoice-rule {
+  height: 1px;
+  margin: 1.5rem 0;
+  background: var(--line);
+}
+
+.invoice-student h3,
+.invoice-status-row h3 {
+  font-size: 1.05rem;
+}
+
+.invoice-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 2rem;
+  margin-top: 0.9rem;
+}
+
+.invoice-details-grid > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.invoice-details-grid strong {
+  overflow-wrap: anywhere;
+}
+
+.invoice-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.invoice-status-row .status-tag {
+  margin: 0;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.invoice-table th,
+.invoice-table td {
+  padding: 0.85rem 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.invoice-table th {
+  color: var(--ink-soft);
+  font-weight: 500;
+  text-align: left;
+}
+
+.invoice-table td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.invoice-table thead th {
+  border-top: 0;
+  border-bottom: 2px solid var(--line);
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.invoice-table .invoice-credit td {
+  color: #28764C;
+}
+
+.invoice-table .invoice-total th,
+.invoice-table .invoice-total td {
+  border-top: 2px solid #AFC9B6;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.invoice-payable-label {
+  margin: 1.5rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.invoice-payable {
+  margin: 0.15rem 0 0;
+  color: #087342;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.invoice-payment-note {
+  margin: 0.25rem 0 0;
+}
+
+.invoice-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.invoice-footer p {
+  margin: 0.3rem 0;
+}
+
+.invoice-generated {
+  font-size: 0.74rem;
+}
+
+@media (max-width: 520px) {
+  .invoice-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .invoice-meta {
+    grid-template-columns: auto 1fr;
+    column-gap: 0.75rem;
+    text-align: left;
+  }
+
+  .invoice-meta strong {
+    margin-bottom: 0;
+  }
+
+  .invoice-details-grid {
+    gap: 0.8rem;
+  }
+
+  .invoice-table th,
+  .invoice-table td {
+    padding: 0.7rem 0.35rem;
+  }
+}
+
+/* ---------- Receipt ---------- */
+.receipt-row { display: flex; justify-content: space-between; padding: 0.55rem 0; border-top: 1px solid var(--line); font-size: 0.95rem; }
+.receipt-row:first-of-type { border-top: none; }
+.receipt-row span:first-child { color: var(--ink-soft); }
+
+@media print {
+  .portal-nav, button, .no-print { display: none !important; }
+  html, body { background: #fff !important; }
+  .panel { border: none; }
+  body[data-page="invoice"] { background: #fff !important; }
+  body[data-page="invoice"] .letterhead { display: none; }
+  body[data-page="invoice"] .invoice-page { max-width: none; padding: 0; }
+  body[data-page="invoice"] .invoice-document {
+    border: 1px solid #CDD7CF;
+    border-top: 5px solid #087342;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  body[data-page="invoice"] .invoice-table thead { display: table-header-group; }
+}

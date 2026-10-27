@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Fees — Computer and Robotics Bursary Portal</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-portal="student" data-page="dashboard">
+
+<div id="shell"></div>
+
+<main class="student-dashboard">
+  <aside class="student-profile" aria-labelledby="profile-name">
+    <div class="student-avatar" id="student-avatar" aria-hidden="true">S</div>
+    <h2 id="profile-name">Loading profile…</h2>
+    <p class="student-level" id="profile-level">Student account</p>
+    <a class="profile-update" href="/student/profile.html">Update profile</a>
+    <div class="profile-divider"></div>
+    <dl class="profile-details">
+      <div><dt>Email address</dt><dd id="profile-email">—</dd></div>
+      <div><dt>Matric number</dt><dd id="profile-matric">—</dd></div>
+      <div><dt>Academic level</dt><dd id="profile-level-detail">—</dd></div>
+    </dl>
+  </aside>
+
+  <div class="dashboard-content">
+    <section class="dashboard-welcome" aria-labelledby="dashboard-greeting">
+      <div>
+        <p class="dashboard-eyebrow">STUDENT PORTAL</p>
+        <h1 id="dashboard-greeting">Welcome to your dashboard</h1>
+        <p>View your fee balance and manage your payments.</p>
+      </div>
+      <div class="session-chip">
+        <label for="academic-session">ACADEMIC SESSION</label>
+        <select id="academic-session" disabled aria-label="Choose academic year">
+          <option>Loading…</option>
+        </select>
+      </div>
+    </section>
+
+    <div id="verify-notice" class="payment-feedback" role="status" aria-live="polite"></div>
+
+    <section class="dashboard-stats" aria-label="Fee summary" aria-live="polite">
+      <article class="dashboard-stat stat-blue">
+        <span class="stat-icon" aria-hidden="true">₦</span>
+        <p>Total fees</p>
+        <strong id="total-due">—</strong>
+        <span class="stat-caption">Selected academic session</span>
+      </article>
+      <article class="dashboard-stat stat-cyan">
+        <span class="stat-icon" aria-hidden="true">✓</span>
+        <p>Fees paid</p>
+        <strong id="total-paid">—</strong>
+        <span class="stat-caption" id="summary-progress-label">Payment progress</span>
+      </article>
+      <article class="dashboard-stat stat-green">
+        <span class="stat-icon" aria-hidden="true">₦</span>
+        <p>Outstanding balance</p>
+        <strong id="total-outstanding">—</strong>
+        <span class="stat-caption">Remaining to pay</span>
+      </article>
+    </section>
+
+    <section class="dashboard-panel activity-panel" aria-labelledby="activity-title">
+      <div class="dashboard-panel-heading">
+        <div>
+          <p class="dashboard-eyebrow">PAYMENT UPDATES</p>
+          <h2 id="activity-title">Recent activity</h2>
+        </div>
+        <a href="/student/payments.html">View payment history / Remita RRRs</a>
+      </div>
+      <div id="activity-body" class="activity-body" aria-live="polite">
+        <p class="muted">Loading your recent payments…</p>
+      </div>
+    </section>
+
+    <section class="fee-section dashboard-panel" aria-labelledby="session-title">
+      <div class="fee-section-heading">
+        <div>
+          <p class="dashboard-eyebrow">YOUR BREAKDOWN</p>
+          <h2 id="session-title">Fee statement</h2>
+        </div>
+      </div>
+      <div id="fees-body" class="fee-grid" aria-live="polite">Loading your fee status…</div>
+    </section>
+  </div>
+</main>
+
+<script src="/js/common.js"></script>
+<script src="/js/student-dashboard.js"></script>
+</body>
+</html>

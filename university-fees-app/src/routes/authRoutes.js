@@ -290,46 +290,7 @@ router.put(
   "/student/profile",
   requireRole("student"),
   asyncHandler(async (req, res) => {
-    const fields = [
-      ["phone_number", 32],
-      ["permanent_address", 250],
-      ["contact_address", 250],
-      ["state_of_origin", 100],
-      ["lga_of_origin", 100],
-      ["home_town", 100],
-    ];
-    const values = [];
-
-    for (const [field, maxLength] of fields) {
-      const value = req.body?.[field];
-      if (value !== undefined && value !== null && typeof value !== "string") {
-        return res.status(400).json({ error: `${field.replaceAll("_", " ")} must be text.` });
-      }
-      const cleanValue = typeof value === "string" ? value.trim() : "";
-      if (cleanValue.length > maxLength) {
-        return res.status(400).json({
-          error: `${field.replaceAll("_", " ")} must be ${maxLength} characters or fewer.`,
-        });
-      }
-      values.push(cleanValue || null);
-    }
-
-    if (values[0] && !/^[+()\d.\-\s]{7,32}$/.test(values[0])) {
-      return res.status(400).json({ error: "Enter a valid phone number." });
-    }
-
-    const { rows } = await db.query(
-      `UPDATE students
-       SET phone_number = $1, permanent_address = $2, contact_address = $3,
-           state_of_origin = $4, lga_of_origin = $5, home_town = $6
-       WHERE id = $7
-       RETURNING phone_number, permanent_address, contact_address,
-                 state_of_origin, lga_of_origin, home_town`,
-      [...values, req.user.id]
-    );
-    if (!rows[0]) return res.status(404).json({ error: "Student account not found." });
-
-    res.json({ message: "Your profile has been updated.", profile: rows[0] });
+    res.status(403).json({ error: "Only an administrator can change student information. Please contact the bursary office." });
   })
 );
 

@@ -4,29 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Staff Login — Computer and Robotics Bursary Portal</title>
+<script src="/js/theme.js"></script>
 <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body data-portal="staff" data-page="login" data-public="true" data-subtitle="Staff access">
 
-<div id="shell"></div>
+<main class="login-layout">
+  <section class="login-content" aria-label="Staff sign in">
+    <div id="shell"></div>
+    <div class="wrap">
+      <div class="panel">
+        <h2 style="font-size:1.2rem;">Staff log in</h2>
+        <form id="login-form">
+          <label for="login-identifier">Email</label>
+          <input type="email" id="login-identifier" required autocomplete="username">
 
-<div class="wrap">
-  <div class="panel">
-    <h2 style="font-size:1.2rem;">Staff log in</h2>
-    <form id="login-form">
-      <label for="login-identifier">Email</label>
-      <input type="email" id="login-identifier" required autocomplete="username">
+          <label for="password">Password</label>
+          <input type="password" id="password" required autocomplete="current-password">
 
-      <label for="password">Password</label>
-      <input type="password" id="password" required autocomplete="current-password">
-
-      <p class="footer-link"><a href="/forgot-password.html?portal=staff">Forgot your password?</a></p>
-      <button type="submit" id="submit-btn">Log in</button>
-      <div class="error" id="error-msg" style="display:none;"></div>
-    </form>
-    <p class="footer-link">Staff accounts are created by an administrator.</p>
-  </div>
-</div>
+          <p class="footer-link"><a href="/forgot-password.html?portal=staff">Forgot your password?</a></p>
+          <button type="submit" id="submit-btn">Log in</button>
+          <div class="error" id="error-msg" style="display:none;"></div>
+        </form>
+        <p class="footer-link">Staff accounts are created by an administrator.</p>
+      </div>
+    </div>
+  </section>
+  <aside class="login-education-panel" aria-label="Computer and Robotics Education">
+    <div class="login-education-content">
+      <p class="login-education-kicker">COMPUTER AND ROBOTICS EDUCATION</p>
+      <h2>Log in to support learning and student success.</h2>
+      <p class="login-education-copy">Access the tools that help you support students and keep bursary activity clear.</p>
+      <div class="login-highlights" aria-label="Staff portal features">
+        <div class="login-highlight"><span>01</span><div><strong>Find student records</strong><small>Look up student information when needed.</small></div></div>
+        <div class="login-highlight"><span>02</span><div><strong>Review payments</strong><small>Monitor fee status and payment activity.</small></div></div>
+        <div class="login-highlight"><span>03</span><div><strong>Work securely</strong><small>Use your staff account for portal access.</small></div></div>
+      </div>
+      <div class="login-department-brand">
+        <img src="/images/cresa-logo.jpg" alt="CRESA department logo">
+        <span>University of Nigeria<br><strong>Nsukka</strong></span>
+      </div>
+    </div>
+  </aside>
+</main>
 
 <script src="/js/common.js"></script>
 <script src="/js/login.js"></script>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Students — Admin Portal</title>
+<script src="/js/theme.js"></script>
 <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body data-portal="admin" data-page="students">
@@ -20,11 +21,45 @@
       </div>
     </div>
     <div class="table-scroll"><table class="history">
-      <thead><tr><th>Student</th><th>Matric no.</th><th>Level</th><th>School fee</th><th>Hostel fee</th><th>Registered</th></tr></thead>
-      <tbody id="students-body"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody>
+      <thead><tr><th>Student</th><th>Matric no.</th><th>Level</th><th>School fee</th><th>Hostel fee</th><th>Registered</th><th>Actions</th></tr></thead>
+      <tbody id="students-body"><tr><td colspan="7" class="muted">Loading…</td></tr></tbody>
     </table></div>
   </div>
 </div>
+
+<dialog id="student-edit-dialog" class="student-edit-dialog" aria-labelledby="student-edit-title">
+  <form id="student-edit-form">
+    <div class="student-edit-heading">
+      <div>
+        <p class="dashboard-eyebrow">ADMINISTRATION</p>
+        <h2 id="student-edit-title">Edit student information</h2>
+      </div>
+      <button type="button" class="secondary inline-btn" id="student-edit-close" aria-label="Close dialog">Close</button>
+    </div>
+    <div class="profile-form-grid">
+      <label for="edit-full-name">Full name<input id="edit-full-name" name="full_name" required maxlength="150"></label>
+      <label for="edit-email">Email address<input id="edit-email" name="email" type="email" required maxlength="254"></label>
+      <label for="edit-matric-number">Matric number<input id="edit-matric-number" name="matric_number" required maxlength="64"></label>
+      <label for="edit-level">Academic level
+        <select id="edit-level" name="level" required>
+          <option value="100">100</option><option value="200">200</option><option value="300">300</option>
+          <option value="400">400</option><option value="500">500</option>
+        </select>
+      </label>
+      <label for="edit-phone">Phone number<input id="edit-phone" name="phone_number" type="tel" maxlength="32"></label>
+      <label for="edit-state">State of origin<input id="edit-state" name="state_of_origin" maxlength="100"></label>
+      <label for="edit-lga">Local government area<input id="edit-lga" name="lga_of_origin" maxlength="100"></label>
+      <label for="edit-town">Home town<input id="edit-town" name="home_town" maxlength="100"></label>
+      <label class="profile-field-wide" for="edit-permanent-address">Permanent address<textarea id="edit-permanent-address" name="permanent_address" maxlength="250" rows="2"></textarea></label>
+      <label class="profile-field-wide" for="edit-contact-address">Contact address<textarea id="edit-contact-address" name="contact_address" maxlength="250" rows="2"></textarea></label>
+    </div>
+    <p id="student-edit-message" class="error" role="alert" hidden></p>
+    <div class="student-edit-actions">
+      <button type="button" class="secondary" id="student-edit-cancel">Cancel</button>
+      <button type="submit" id="student-edit-save">Save student information</button>
+    </div>
+  </form>
+</dialog>
 
 <script src="/js/common.js"></script>
 <script src="/js/students.js"></script>

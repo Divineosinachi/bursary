@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Profile — Computer and Robotics Bursary Portal</title>
+<script src="/js/theme.js"></script>
 <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body data-portal="student" data-page="profile">
@@ -40,7 +41,7 @@
           <p class="dashboard-eyebrow">ACCOUNT</p>
           <h3 id="personal-title">Personal information</h3>
         </div>
-        <span class="profile-readonly-note">Account identifiers are read-only</span>
+        <span class="profile-readonly-note">Only an administrator can change student information</span>
       </div>
       <div class="profile-readonly-grid">
         <div><span>Full name</span><strong id="profile-full-name">—</strong></div>
@@ -53,43 +54,19 @@
     <section class="profile-section-card" id="contact-details" aria-labelledby="contact-title">
       <div class="profile-card-heading">
         <div>
-          <p class="dashboard-eyebrow">YOUR DETAILS</p>
+          <p class="dashboard-eyebrow">STUDENT INFORMATION</p>
           <h3 id="contact-title">Contact and origin details</h3>
         </div>
+        <span class="profile-readonly-note">Contact the bursary office to request a change</span>
       </div>
-      <form id="profile-form">
-        <div class="profile-form-grid">
-          <label for="phone-number">
-            Phone number
-            <input type="tel" id="phone-number" name="phone_number" maxlength="32" autocomplete="tel" placeholder="+234 800 000 0000">
-          </label>
-          <label for="state-of-origin">
-            State of origin
-            <input type="text" id="state-of-origin" name="state_of_origin" maxlength="100" autocomplete="address-level1">
-          </label>
-          <label for="lga-of-origin">
-            Local government area
-            <input type="text" id="lga-of-origin" name="lga_of_origin" maxlength="100">
-          </label>
-          <label for="home-town">
-            Home town
-            <input type="text" id="home-town" name="home_town" maxlength="100" autocomplete="address-level2">
-          </label>
-          <label class="profile-field-wide" for="permanent-address">
-            Permanent address
-            <textarea id="permanent-address" name="permanent_address" maxlength="250" rows="3" autocomplete="street-address"></textarea>
-          </label>
-          <label class="profile-field-wide" for="contact-address">
-            Contact address
-            <textarea id="contact-address" name="contact_address" maxlength="250" rows="3" autocomplete="street-address"></textarea>
-          </label>
-        </div>
-        <div class="profile-form-footer">
-          <p class="profile-privacy-note">These details are visible only to authorized portal staff.</p>
-          <button type="submit" id="profile-save-btn">Save profile</button>
-        </div>
-        <div id="profile-msg" class="notice" role="status" aria-live="polite" style="display:none;"></div>
-      </form>
+      <div class="profile-readonly-grid">
+        <div><span>Phone number</span><strong id="profile-phone">—</strong></div>
+        <div><span>State of origin</span><strong id="profile-state">—</strong></div>
+        <div><span>Local government area</span><strong id="profile-lga">—</strong></div>
+        <div><span>Home town</span><strong id="profile-town">—</strong></div>
+        <div><span>Permanent address</span><strong id="profile-permanent-address">—</strong></div>
+        <div><span>Contact address</span><strong id="profile-contact-address">—</strong></div>
+      </div>
     </section>
 
     <section class="profile-section-card" id="account-security" aria-labelledby="security-title">

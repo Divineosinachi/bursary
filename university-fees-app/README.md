@@ -11,8 +11,11 @@ See [PORTALS.md](PORTALS.md) for the full list of portals and pages.
 - Node.js + Express backend
 - Supabase (hosted Postgres) database
 - Three portals: student, staff, admin — each with its own login and pages
+- Public welcome page with portal links, service overview, payment steps, and department contact details
+- CRESA logo and site-wide appearance preference: light, dark, or follow the device system setting
 - Student registration and login (JWT sessions, bcrypt-hashed passwords)
-- Student-editable contact and origin details on the profile page
+- Students can view their contact and origin details on the profile page
+- Student information is read-only to students and staff; administrators can update student records
 - Fee tracking per level/session (school fee and hostel fee tracked separately); students
   can choose any academic session with a fee schedule configured for their level
 - Printable school and hostel fee invoices that students can save as PDF

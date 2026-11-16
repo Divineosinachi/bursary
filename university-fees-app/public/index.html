@@ -3,33 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Computer and Robotics Bursary Portal</title>
+<meta name="theme-color" content="#071426">
+<meta name="description" content="The Computer and Robotics Education Bursary Portal at UNN. Manage school and hostel fees, choose an academic session, and access payment receipts.">
+<title>CRE Bursary Portal | Computer and Robotics Education, UNN</title>
+<script src="/js/theme.js"></script>
+<script src="/js/welcome.js" defer></script>
 <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-
-<div class="letterhead">
-  <h1>Computer and Robotics Bursary Portal</h1>
-  <p>School fees and hostel fees, paid online</p>
-  <hr>
-</div>
-
-<div class="wrap">
-  <div class="portal-choices">
-    <a class="portal-choice" href="/student/login.html">
-      <h2>Student portal</h2>
-      <p>pay school and hostel fees, and print receipts.</p>
-    </a>
-    <a class="portal-choice" href="/staff/login.html">
-      <h2>Staff portal</h2>
-      <p>Look up students and track payments.</p>
-    </a>
-    <a class="portal-choice" href="/admin/login.html">
-      <h2>Admin portal</h2>
-      <p>Manage staff accounts and fee amounts, and review the audit log.</p>
-    </a>
+<body data-page="welcome">
+<header class="welcome-header">
+  <a class="welcome-brand" href="/" aria-label="CRE Bursary Portal home">
+    <img src="/images/cresa-logo.jpg" alt="CRESA logo">
+    <span><strong>CRE Bursary Portal</strong><small>Computer and Robotics Education · UNN</small></span>
+  </a>
+  <nav class="welcome-nav" id="welcome-navigation" aria-label="Main navigation">
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#contact">Contact</a>
+    <a class="welcome-nav-login" href="/student/login.html">Portal login</a>
+  </nav>
+  <div class="welcome-header-tools">
+    <div class="welcome-appearance" id="welcome-appearance"></div>
+    <button class="welcome-menu-toggle" type="button" aria-controls="welcome-navigation" aria-expanded="false" aria-label="Open navigation menu">
+      <span class="welcome-menu-icon" aria-hidden="true"></span>
+    </button>
   </div>
-</div>
+</header>
+
+<main>
+  <section class="welcome-hero">
+    <div class="welcome-hero-content">
+      <p class="welcome-eyebrow welcome-institution">
+        <span class="welcome-eyebrow-dot" aria-hidden="true"></span>
+        <strong>UNIVERSITY OF NIGERIA</strong>
+        <span class="welcome-institution-campus">NSUKKA</span>
+      </p>
+      <h1>Fees made clearer.<br><span>Payments made simpler.</span></h1>
+      <p class="welcome-hero-copy">A secure place for Computer and Robotics Education students to view school and hostel fees, choose an academic session, and keep track of payments.</p>
+      <div class="welcome-hero-actions">
+        <a class="welcome-primary-action" href="/student/login.html">Student portal <span aria-hidden="true">→</span></a>
+        <a class="welcome-secondary-action" href="#services">Explore the portal</a>
+      </div>
+      <div class="welcome-trust-note"><span aria-hidden="true">✓</span> Secure sign-in · Clear fee records · Printable receipts</div>
+    </div>
+    <div class="welcome-hero-art" aria-label="CRE bursary portal">
+      <div class="welcome-logo-frame"><img src="/images/cresa-logo.jpg" alt="CRESA logo"></div>
+      <div class="welcome-art-caption"><span class="welcome-status-dot"></span><span><strong>CRE Bursary Portal</strong><small>Student · Staff · Administration</small></span></div>
+    </div>
+  </section>
+
+  <section class="welcome-portal-section" aria-labelledby="portals-title">
+    <div class="welcome-section-heading">
+      <div><p class="welcome-eyebrow">GET STARTED</p><h2 id="portals-title">Choose your portal</h2></div>
+      <p>Sign in to the portal that matches your role.</p>
+    </div>
+    <div class="welcome-portal-grid">
+      <a class="welcome-portal-card" href="/student/login.html">
+        <span class="welcome-card-icon" aria-hidden="true">01</span>
+        <span class="welcome-card-arrow" aria-hidden="true">↗</span>
+        <h3>Student portal</h3>
+        <p>Review fees by academic session, make payments, view payment history and print receipts.</p>
+        <span class="welcome-card-link">Student sign in <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="welcome-portal-card" href="/staff/login.html">
+        <span class="welcome-card-icon" aria-hidden="true">02</span>
+        <span class="welcome-card-arrow" aria-hidden="true">↗</span>
+        <h3>Staff portal</h3>
+        <p>Look up student records, monitor fee status and review payments.</p>
+        <span class="welcome-card-link">Staff sign in <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="welcome-portal-card" href="/admin/login.html">
+        <span class="welcome-card-icon" aria-hidden="true">03</span>
+        <span class="welcome-card-arrow" aria-hidden="true">↗</span>
+        <h3>Admin portal</h3>
+        <p>Manage student information, staff accounts and fee schedules, and review audit activity.</p>
+        <span class="welcome-card-link">Admin sign in <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="welcome-services" id="services" aria-labelledby="services-title">
+    <div class="welcome-services-intro">
+      <p class="welcome-eyebrow">ONE PORTAL, CLEARER RECORDS</p>
+      <h2 id="services-title">Everything you need to manage fees</h2>
+      <p>Access fee information and payment records in one place, from a phone, tablet or computer.</p>
+      <a class="welcome-text-link" href="/student/register.html">New student? Create an account <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="welcome-feature-list">
+      <article class="welcome-feature">
+        <span class="welcome-feature-mark" aria-hidden="true">01</span>
+        <div><h3>Choose your academic session</h3><p>View available fee schedules for your level and select the session you intend to pay for.</p></div>
+      </article>
+      <article class="welcome-feature">
+        <span class="welcome-feature-mark" aria-hidden="true">02</span>
+        <div><h3>Pay school and hostel fees</h3><p>Use Paystack for school or hostel fees, or generate a Remita RRR for school-fee payments.</p></div>
+      </article>
+      <article class="welcome-feature">
+        <span class="welcome-feature-mark" aria-hidden="true">03</span>
+        <div><h3>Track payments and print receipts</h3><p>Check your payment history and access printable invoices and receipts from your account.</p></div>
+      </article>
+      <article class="welcome-feature">
+        <span class="welcome-feature-mark" aria-hidden="true">04</span>
+        <div><h3>Student information is protected</h3><p>Students and staff can view student records. Only administrators can update student information.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="welcome-steps-section" id="how-it-works" aria-labelledby="steps-title">
+    <div class="welcome-section-heading">
+      <div><p class="welcome-eyebrow">SIMPLE STEPS</p><h2 id="steps-title">How to get started</h2></div>
+      <p>Students can begin with their portal account and follow each payment from dashboard to receipt.</p>
+    </div>
+    <div class="welcome-steps">
+      <article><span>1</span><h3>Sign in or register</h3><p>Use your student account, or create one if you are a new student.</p></article>
+      <article><span>2</span><h3>Select a session</h3><p>Choose an academic session with a fee schedule for your level.</p></article>
+      <article><span>3</span><h3>Pay and keep your receipt</h3><p>Choose an available payment option, then check your status and receipt.</p></article>
+    </div>
+  </section>
+
+  <section class="welcome-contact" id="contact" aria-labelledby="contact-title">
+    <div class="welcome-contact-copy">
+      <p class="welcome-eyebrow">WE’RE HERE TO HELP</p>
+      <h2 id="contact-title">Contact the department</h2>
+      <p>For assistance with the portal or bursary information, contact the Department of Computer and Robotics Education.</p>
+    </div>
+    <div class="welcome-contact-details">
+      <a href="mailto:okehdivine355@gmail.com"><span class="welcome-contact-icon" aria-hidden="true">@</span><span><small>Email</small><strong>okehdivine355@gmail.com</strong></span></a>
+      <a href="tel:+2349166188870"><span class="welcome-contact-icon" aria-hidden="true">☎</span><span><small>Phone</small><strong>+234 916 618 8870</strong></span></a>
+      <div><span class="welcome-contact-icon" aria-hidden="true">⌖</span><span><small>Location</small><strong>Department of Computer and Robotics Education<br>University of Nigeria, Nsukka (UNN)</strong></span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="welcome-footer">
+  <a class="welcome-footer-brand" href="/"><img src="/images/cresa-logo.jpg" alt=""><span>CRE Bursary Portal</span></a>
+  <p>Computer and Robotics Education · University of Nigeria, Nsukka</p>
+  <a href="#contact">Contact the department</a>
+</footer>
 
 </body>
 </html>

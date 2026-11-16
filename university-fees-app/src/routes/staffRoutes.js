@@ -73,6 +73,7 @@ router.get(
     res.json(
       rows.map((r) => ({
         id: r.id,
+        id: r.id,
         full_name: r.full_name,
         email: r.email,
         matric_number: r.matric_number,

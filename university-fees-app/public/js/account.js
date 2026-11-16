@@ -3,8 +3,7 @@
   const user = await currentUserReady;
   if (!user) return;
 
-  const profileForm = document.getElementById("profile-form");
-  if (user.role === "student" && profileForm) {
+  if (user.role === "student" && document.getElementById("profile-full-name")) {
     const initials = user.full_name.trim().split(/\s+/).slice(0, 2)
       .map((part) => part.charAt(0).toUpperCase()).join("");
     document.getElementById("profile-avatar").textContent = initials || "S";
@@ -15,16 +14,12 @@
     document.getElementById("profile-matric").textContent = user.matric_number;
     document.getElementById("profile-academic-level").textContent = `Level ${user.level}`;
 
-    for (const field of [
-      "phone_number",
-      "permanent_address",
-      "contact_address",
-      "state_of_origin",
-      "lga_of_origin",
-      "home_town",
-    ]) {
-      profileForm.elements[field].value = user[field] || "";
-    }
+    document.getElementById("profile-phone").textContent = user.phone_number || "—";
+    document.getElementById("profile-state").textContent = user.state_of_origin || "—";
+    document.getElementById("profile-lga").textContent = user.lga_of_origin || "—";
+    document.getElementById("profile-town").textContent = user.home_town || "—";
+    document.getElementById("profile-permanent-address").textContent = user.permanent_address || "—";
+    document.getElementById("profile-contact-address").textContent = user.contact_address || "—";
     return;
   }
 
@@ -38,46 +33,6 @@
   }
   document.getElementById("account-details").innerHTML = html;
 })();
-
-const profileForm = document.getElementById("profile-form");
-if (profileForm) {
-  const profileMsg = document.getElementById("profile-msg");
-  const profileSaveBtn = document.getElementById("profile-save-btn");
-  const profileFields = [
-    "phone_number",
-    "permanent_address",
-    "contact_address",
-    "state_of_origin",
-    "lga_of_origin",
-    "home_town",
-  ];
-
-  profileForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    profileMsg.className = "error";
-    profileMsg.style.display = "none";
-    profileSaveBtn.disabled = true;
-
-    const profile = Object.fromEntries(
-      profileFields.map((field) => [field, profileForm.elements[field].value.trim()])
-    );
-
-    try {
-      const result = await apiRequest("/auth/student/profile", {
-        method: "PUT",
-        body: profile,
-      });
-      Object.assign(currentUser, result.profile);
-      profileMsg.className = "notice";
-      profileMsg.textContent = result.message;
-    } catch (error) {
-      profileMsg.textContent = error.message;
-    } finally {
-      profileMsg.style.display = "block";
-      profileSaveBtn.disabled = false;
-    }
-  });
-}
 
 const form = document.getElementById("password-form");
 const msg = document.getElementById("password-msg");

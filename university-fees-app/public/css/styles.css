@@ -86,6 +86,29 @@ a { color: var(--navy); }
   color: rgba(255, 255, 255, 0.88);
 }
 
+.appearance-toggle {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 2.25rem;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+}
+
+.appearance-toggle:hover {
+  background: rgba(127, 127, 127, 0.12);
+}
+
+.appearance-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 .appearance-icon {
   display: inline-flex;
   width: 1rem;

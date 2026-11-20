@@ -27,6 +27,14 @@
   function updateAppearanceIcon(resolvedMode) {
     const icon = document.querySelector(".appearance-icon");
     if (icon) icon.innerHTML = resolvedMode === "dark" ? moonIcon : sunIcon;
+
+    const toggle = document.querySelector(".appearance-toggle");
+    if (toggle) {
+      const nextMode = resolvedMode === "dark" ? "light" : "dark";
+      const label = `Switch to ${nextMode} mode`;
+      toggle.setAttribute("aria-label", label);
+      toggle.title = label;
+    }
   }
 
   function addAppearanceControl() {
@@ -34,18 +42,13 @@
     const control = document.createElement("div");
     control.className = "appearance-control";
     control.innerHTML = `
-      <span class="appearance-icon" aria-hidden="true"></span>
-      <label for="appearance-mode">Appearance</label>
-      <select id="appearance-mode" aria-label="Color theme">
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>`;
+      <button class="appearance-toggle" type="button" aria-label="Switch theme">
+        <span class="appearance-icon" aria-hidden="true"></span>
+      </button>`;
 
-    const selector = control.querySelector("select");
-    selector.value = mode;
-    selector.addEventListener("change", () => {
-      applyMode(selector.value);
+    const toggle = control.querySelector(".appearance-toggle");
+    toggle.addEventListener("click", () => {
+      applyMode(root.dataset.theme === "dark" ? "light" : "dark");
       try {
         localStorage.setItem(storageKey, mode);
       } catch (error) {

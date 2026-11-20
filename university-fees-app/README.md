@@ -115,13 +115,28 @@ Locally, the redirect-and-verify step still records payments.
 
 ## 6. Deploying
 
-This is a standard Node.js app and runs on Render, Railway, Fly.io, a VPS, or similar.
+This Express app can run on Vercel or on a Node.js host such as Render, Railway, Fly.io,
+or a VPS. The Git repository contains this app in the `university-fees-app` subdirectory.
+
+### Vercel
+
+1. Import the GitHub repository and set **Root Directory** to `university-fees-app`.
+   Vercel must use this folder, where `package.json` and `src/server.js` are located.
+2. Let Vercel detect the Express app; no custom build or start command is needed.
+3. Add the values from `.env` as Vercel environment variables for the Production
+   environment. Set `APP_BASE_URL` to the deployed URL.
+4. Deploy. Vercel serves files in `public/` as static assets; the Express server's
+   `express.static()` middleware remains useful for local development.
+
+### Other Node.js hosts
 
 - Set every `.env` value as an environment variable on the host.
+- Use `npm install` as the build command and `npm start` as the start command.
 - Because the database is on Supabase, you don't need a persistent disk.
-- Switch to your **live** Paystack keys when you're ready to accept real money, and update
-  the webhook URL to your live domain.
-- Serve over HTTPS (any host above does this by default).
+
+For either option, switch to your **live** Paystack keys when you're ready to accept
+real money, and update the webhook URL to `https://your-domain.com/api/payments/webhook`.
+Keep `.env` out of git and serve over HTTPS.
 
 ## Security notes
 

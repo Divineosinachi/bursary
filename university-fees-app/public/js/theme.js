@@ -3,6 +3,8 @@
   const validModes = ["system", "light", "dark"];
   const root = document.documentElement;
   const systemPreference = window.matchMedia("(prefers-color-scheme: dark)");
+  const sunIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>`;
+  const moonIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.1 15.1A8.5 8.5 0 0 1 8.9 3.9 8.5 8.5 0 1 0 20.1 15.1Z"></path></svg>`;
   let mode = "system";
 
   try {
@@ -19,6 +21,12 @@
       : mode;
     root.dataset.theme = resolvedMode;
     root.style.colorScheme = resolvedMode;
+    updateAppearanceIcon(resolvedMode);
+  }
+
+  function updateAppearanceIcon(resolvedMode) {
+    const icon = document.querySelector(".appearance-icon");
+    if (icon) icon.innerHTML = resolvedMode === "dark" ? moonIcon : sunIcon;
   }
 
   function addAppearanceControl() {
@@ -26,6 +34,7 @@
     const control = document.createElement("div");
     control.className = "appearance-control";
     control.innerHTML = `
+      <span class="appearance-icon" aria-hidden="true"></span>
       <label for="appearance-mode">Appearance</label>
       <select id="appearance-mode" aria-label="Color theme">
         <option value="system">System</option>
@@ -79,6 +88,8 @@
       const host = document.getElementById("welcome-appearance");
       if (host) host.appendChild(control);
     }
+
+    updateAppearanceIcon(root.dataset.theme);
 
     if (!document.querySelector('link[rel="icon"]')) {
       const icon = document.createElement("link");

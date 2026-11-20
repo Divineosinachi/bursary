@@ -3614,6 +3614,33 @@ body[data-page="welcome"] a {
   transform: translateY(-1px);
 }
 
+.welcome-nav .welcome-nav-install {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.welcome-install-status {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--welcome-soft);
+  color: var(--welcome-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+[hidden] {
+  display: none !important;
+}
+
 .welcome-nav a:focus-visible,
 .welcome-brand:focus-visible,
 .welcome-menu-toggle:focus-visible,
@@ -4494,6 +4521,10 @@ html[data-theme="dark"] body[data-page="welcome"] .welcome-contact-icon {
 
   .welcome-nav .welcome-nav-login {
     padding: 0.45rem 0.65rem;
+  }
+
+  .welcome-nav .welcome-nav-install {
+    font-size: 0.74rem;
   }
 
   .welcome-nav a:not(.welcome-nav-login)::after {

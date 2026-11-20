@@ -138,6 +138,14 @@ For either option, switch to your **live** Paystack keys when you're ready to ac
 real money, and update the webhook URL to `https://your-domain.com/api/payments/webhook`.
 Keep `.env` out of git and serve over HTTPS.
 
+### Install the portal
+
+The public welcome page has an **Install app** button. On supported browsers, choose it
+to install the portal; on iPhone or iPad, use the browser's Share menu and choose
+**Add to Home Screen**. Installation requires HTTPS (localhost is allowed for local
+development). The app can show an offline notice, but sign-in, student records, and
+payments still require an internet connection; private and API responses are not cached.
+
 ## Security notes
 
 - Row-level security is switched on for every table with no policies, so Supabase's public

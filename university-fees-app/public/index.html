@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#071426">
 <meta name="description" content="The Computer and Robotics Education Bursary Portal at UNN. Manage school and hostel fees, choose an academic session, and access payment receipts.">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/images/pwa-icon-192.png">
 <title>CRE Bursary Portal | Computer and Robotics Education, UNN</title>
 <script src="/js/theme.js"></script>
 <script src="/js/welcome.js" defer></script>
+<script src="/js/pwa.js" defer></script>
 <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body data-page="welcome">
@@ -21,6 +24,7 @@
     <a href="#how-it-works">How it works</a>
     <a href="#contact">Contact</a>
     <a class="welcome-nav-login" href="/student/login.html">Portal login</a>
+    <button class="welcome-nav-login welcome-nav-install" id="install-app" type="button">Install app</button>
   </nav>
   <div class="welcome-header-tools">
     <div class="welcome-appearance" id="welcome-appearance"></div>
@@ -29,6 +33,7 @@
     </button>
   </div>
 </header>
+<p class="welcome-install-status" id="install-status" role="status" aria-live="polite" hidden></p>
 
 <main>
   <section class="welcome-hero">
